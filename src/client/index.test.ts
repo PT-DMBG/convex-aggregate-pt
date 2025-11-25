@@ -45,7 +45,6 @@ function createAggregates() {
     TableName: "testItems";
   }>(components.aggregate, {
     sortKey: (doc) => doc.value,
-    sumValue: (doc) => doc.value,
   });
 
   const aggregateWithNamespace = new TableAggregate<{

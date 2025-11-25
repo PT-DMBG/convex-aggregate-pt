@@ -24,67 +24,11 @@ import type { FunctionReference } from "convex/server";
 export type ComponentApi<Name extends string | undefined = string | undefined> =
   {
     btree: {
-      aggregateBetween: FunctionReference<
-        "query",
-        "internal",
-        { k1?: any; k2?: any; namespace?: any },
-        { count: number; sum: number },
-        Name
-      >;
-      aggregateBetweenBatch: FunctionReference<
-        "query",
-        "internal",
-        { queries: Array<{ k1?: any; k2?: any; namespace?: any }> },
-        Array<{ count: number; sum: number }>,
-        Name
-      >;
-      atNegativeOffset: FunctionReference<
-        "query",
-        "internal",
-        { k1?: any; k2?: any; namespace?: any; offset: number },
-        { k: any; s: number; v: any },
-        Name
-      >;
-      atOffset: FunctionReference<
-        "query",
-        "internal",
-        { k1?: any; k2?: any; namespace?: any; offset: number },
-        { k: any; s: number; v: any },
-        Name
-      >;
-      atOffsetBatch: FunctionReference<
-        "query",
-        "internal",
-        {
-          queries: Array<{
-            k1?: any;
-            k2?: any;
-            namespace?: any;
-            offset: number;
-          }>;
-        },
-        Array<{ k: any; s: number; v: any }>,
-        Name
-      >;
       get: FunctionReference<
         "query",
         "internal",
         { key: any; namespace?: any },
-        null | { k: any; s: number; v: any },
-        Name
-      >;
-      offset: FunctionReference<
-        "query",
-        "internal",
-        { k1?: any; key: any; namespace?: any },
-        number,
-        Name
-      >;
-      offsetUntil: FunctionReference<
-        "query",
-        "internal",
-        { k2?: any; key: any; namespace?: any },
-        number,
+        null | { k: any; v: string },
         Name
       >;
       paginate: FunctionReference<
@@ -98,11 +42,7 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
           namespace?: any;
           order: "asc" | "desc";
         },
-        {
-          cursor: string;
-          isDone: boolean;
-          page: Array<{ k: any; s: number; v: any }>;
-        },
+        { cursor: string; isDone: boolean; page: Array<{ k: any; v: string }> },
         Name
       >;
       paginateNamespaces: FunctionReference<
@@ -149,8 +89,7 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
         Array<{
           _creationTime: number;
           _id: string;
-          aggregate?: { count: number; sum: number };
-          items: Array<{ k: any; s: number; v: any }>;
+          items: Array<{ k: any; v: string }>;
           subtrees: Array<string>;
         }>,
         Name
@@ -173,7 +112,7 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
       clear: FunctionReference<
         "mutation",
         "internal",
-        { maxNodeSize?: number; namespace?: any; rootLazy?: boolean },
+        { maxNodeSize?: number; namespace?: any },
         null,
         Name
       >;
@@ -194,21 +133,14 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
       init: FunctionReference<
         "mutation",
         "internal",
-        { maxNodeSize?: number; namespace?: any; rootLazy?: boolean },
+        { maxNodeSize?: number; namespace?: any },
         null,
         Name
       >;
       insert: FunctionReference<
         "mutation",
         "internal",
-        { key: any; namespace?: any; summand?: number; value: any },
-        null,
-        Name
-      >;
-      makeRootLazy: FunctionReference<
-        "mutation",
-        "internal",
-        { namespace?: any },
+        { key: any; namespace?: any; value: string },
         null,
         Name
       >;
@@ -220,8 +152,7 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
           namespace?: any;
           newKey: any;
           newNamespace?: any;
-          summand?: number;
-          value: any;
+          value: string;
         },
         null,
         Name
@@ -234,8 +165,7 @@ export type ComponentApi<Name extends string | undefined = string | undefined> =
           namespace?: any;
           newKey: any;
           newNamespace?: any;
-          summand?: number;
-          value: any;
+          value: string;
         },
         any,
         Name

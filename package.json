@@ -1,17 +1,16 @@
 {
-  "name": "@convex-dev/aggregate",
-  "description": "Convex component to calculate counts and sums of values for efficient aggregation.",
-  "version": "0.2.0",
+  "name": "@pttest/searchTree",
+  "description": "Convex component that implements a B-tree for efficient searching and indexing.",
+  "version": "0.1.0",
   "keywords": [
     "convex",
     "component",
-    "aggregate",
-    "count",
-    "sum"
+    "searchTree",
+    "search"
   ],
-  "homepage": "https://github.com/get-convex/aggregate",
-  "repository": "github:get-convex/aggregate",
-  "bugs": "https://github.com/get-convex/aggregate/issues",
+  "homepage": "https://github.com/get-convex/searchTree",
+  "repository": "github:get-convex/searchTree",
+  "bugs": "https://github.com/get-convex/searchTree/issues",
   "license": "Apache-2.0",
   "type": "module",
   "scripts": {

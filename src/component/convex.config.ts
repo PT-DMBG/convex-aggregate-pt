@@ -1,3 +1,3 @@
 import { defineComponent } from "convex/server";
 
-export default defineComponent("aggregate");
+export default defineComponent("searchTree");

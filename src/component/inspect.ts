@@ -88,7 +88,6 @@ export const inspectNode = query({
       return;
     }
     console.log("btreeNode", n._id);
-    console.log("aggregate", n.aggregate);
     for (let i = 0; i < n.items.length; i++) {
       if (n.subtrees.length > 0) {
         console.log("subtree", n.subtrees[i]);
